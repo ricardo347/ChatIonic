@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ChatService } from '../chat.service';
 import { ToastController } from '@ionic/angular';
+import {AngularFireDatabase} from 'angularfire2/database'
+
 //import { ChatService } from '../chat.service';
 
 
@@ -19,8 +21,13 @@ export class HomePage {
   nome:String = "";
   assunto: String ="";
 
-  constructor(private router:Router, chService: ChatService,private toastController: ToastController ) {    
-    this.chatService = chService;        
+  constructor(private router:Router, chService: ChatService,private toastController: ToastController,
+    db: AngularFireDatabase ) {    
+      console.log(db);
+    this.chatService = chService;
+
+    //atualiza os chats com a busca no banco
+    this.chatService.fetchNotes();    
   }
 
   //responsavel por pegar o valor atual selecionado da sala

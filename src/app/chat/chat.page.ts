@@ -21,10 +21,10 @@ export class ChatPage implements OnInit {
         this.chatService = this.router.getCurrentNavigation().extras.state.chService;
     });    
   }
-    
+    //atualiza a tela com os chats do banco
   ngOnInit() {
-   
-  }
+    this.chatService.fetchNotes();
+  } 
   
   onClickEnviar(){
     if(this.message != ""){
@@ -34,6 +34,7 @@ export class ChatPage implements OnInit {
         data: Date.now()    
       }
       this.message = "";
+      //adiciona chat (mudança transparnte em ambas versões volatil e db)
       this.chatService.addChat(chat); 
     }
     

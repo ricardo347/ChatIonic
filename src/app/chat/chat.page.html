@@ -6,7 +6,7 @@
 
 <ion-content>
     <ion-content >
-        <ion-card *ngFor="let chat of chatService.chats">
+        <ion-card *ngFor="let chat of chatService.chats | async ">
             <ion-card-header>
               <ion-card-title>
                   {{chat.sender}}
