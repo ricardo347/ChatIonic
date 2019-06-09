@@ -1,3 +1,4 @@
+<script src="../chat/assistant.js"></script>
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -7,8 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  
+
+  <ion-list>
+    <ion-list-header>Bem vindo ao Chat</ion-list-header>
+    <ion-item>
+      <ion-label fixed>Seu nome:</ion-label>
+      <ion-input style="background-color:honeydew" type="text" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <br><br><br>    
+    <ion-item>
+      <ion-label>Selecione uma Sala</ion-label>
+      <ion-select placeholder="..." [(ngModel)]="assunto" (change)="onChange(assunto)">
+        <ion-select-option value="Cinema">Cinema</ion-select-option>
+        <ion-select-option value="Curiosidades">Curiosidades</ion-select-option>
+        <ion-select-option value="Esportes">Esportes</ion-select-option>
+      </ion-select>
+    </ion-item>
+        
+  </ion-list>
+  <ion-button expand="full" (click)="onClickEntrar()">
+      Entrar
+    </ion-button>
 </ion-content>

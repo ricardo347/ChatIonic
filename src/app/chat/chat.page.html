@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-content >
+        <ion-card *ngFor="let chat of chatService.chats">
+            <ion-card-header>
+              <ion-card-title>
+                  {{chat.sender}}
+              </ion-card-title> 
+          </ion-card-header>  
+          <ion-card-content>        
+            <p>
+              {{chat.message}}
+            </p>
+            <br>
+            <p>{{chat.data | date:'dd/MM/yyyy HH:MM'}}</p>
+          </ion-card-content>
+        </ion-card>
+        
+       </ion-content>
+</ion-content>
+<ion-footer>
+  <div>
+    <div style ="float: left; width:75%">
+      <ion-input 
+      placeholder="Digite uma mensagem..." 
+      style="background-color:honeydew;" 
+      type="text"
+      [(ngModel)]="message" >
+      
+    </ion-input>
+    </div>
+    <div style ="float: left; width:25%">
+        <ion-button expand="full" (click)="onClickEnviar()">
+            Enviar
+          </ion-button>
+    </div>
+
+  </div> 
+</ion-footer>
